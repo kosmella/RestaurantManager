@@ -1,5 +1,7 @@
-﻿using System;
+﻿using RestaurantManager.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,6 +32,16 @@ namespace RestaurantManager
         private void Home_click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private void AddToOrder(object sender, RoutedEventArgs e)
+        {
+            string itemToAdd = items.SelectedItem.ToString();
+            if (itemToAdd != null)
+                ((DataManager)DataContext).OrderItems.Add(itemToAdd);
+            
+            
+            
         }
     }
 }
